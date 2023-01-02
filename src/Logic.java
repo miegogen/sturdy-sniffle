@@ -1,6 +1,13 @@
+import java.util.Arrays;
+
 class Logic {
 
-    static void testVariables(String input) throws WrongExpressionException {
+    private int a;
+    private int b;
+    private String s;
+
+
+    void testVariables(String input) throws WrongExpressionException {
         if (input.isEmpty()) {
             throw new WrongExpressionException();
         }
@@ -10,11 +17,9 @@ class Logic {
             throw new WrongExpressionException();
         }
 
-        int a = 0;
-        int b = 0;
         try {
-            a = Integer.parseInt(array[0]);
-            b = Integer.parseInt(array[2]);
+            this.a = Integer.parseInt(array[0]);
+            this.b = Integer.parseInt(array[2]);
         } catch (NumberFormatException e) {
             throw new WrongExpressionException();
         }
@@ -22,18 +27,16 @@ class Logic {
             throw new WrongExpressionException();
         }
 
-        String s = array[1];
+        this.s = array[1];
         if (!(s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/"))) {
             throw new WrongExpressionException();
         }
     }
 
-    static int calculating(String[] expression) {
-        int a = Integer.parseInt(expression[0]);
-        int b = Integer.parseInt(expression[2]);
+    public int calculating() {
         int result = 0;
 
-        switch (expression[1]) {
+        switch (s) {
             case "+":
                 result = a + b;
                 break;
@@ -50,4 +53,6 @@ class Logic {
 
         return result;
     }
+
+
 }

@@ -10,13 +10,15 @@ public class Main {
     }
 
     public static String calc(String input) {
+        Logic logic = new Logic();
+
         try {
-            Logic.testVariables(input);
+            logic.testVariables(input);
         } catch (WrongExpressionException e) {
             return "throws Exception";
         }
 
-        int i = Logic.calculating(input.split(" "));
+        int i = logic.calculating();
 
         return String.valueOf(i);
     }
