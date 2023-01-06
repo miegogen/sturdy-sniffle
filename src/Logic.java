@@ -38,21 +38,36 @@ class Logic {
 
         switch (s) {
             case "+":
-                result = a + b;
+                result = sum(a, b);
                 break;
             case "-":
-                result = a - b;
+                result = sub(a, b);
                 break;
             case "*":
-                result = a * b;
+                result = mul(a, b);
                 break;
             case "/":
-                result = a / b;
+                result = div(a, b);
                 break;
         }
 
         return result;
     }
 
+    private int sum(int a, int b) {
+        return a + b;
+    }
+
+    private int sub(int a, int b) {
+        return a - b;
+    }
+
+    private int mul(int a, int b) {
+        return a * b;
+    }
+
+    private int div(int a, int b) {
+        return a / b;
+    }
 
 }
